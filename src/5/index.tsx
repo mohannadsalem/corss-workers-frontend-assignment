@@ -1,6 +1,4 @@
 import { FunctionComponent, useState } from "react";
-
-// Components
 import Input from "./components/Input";
 import List from "./components/List";
 

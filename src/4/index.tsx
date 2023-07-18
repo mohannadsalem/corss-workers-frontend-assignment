@@ -1,4 +1,3 @@
-// Style
 import { FunctionComponent, useState } from "react";
 import "./index.scss";
 
