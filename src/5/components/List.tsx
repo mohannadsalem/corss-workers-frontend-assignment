@@ -12,11 +12,36 @@ import Item from "./Item";
  *
  * and remove the ListProps interface
  */
+interface ListProps {
+  searchTerm: string;
+}
 
-interface ListProps {}
+const List: FunctionComponent<ListProps> = ({ searchTerm }) => {
+  // Sample data for the list
+  const items = [
+    "Apple",
+    "Banana",
+    "Cherry",
+    "Durian",
+    "Elderberry",
+    "Fig",
+    "Grape",
+    "Honeydew",
+    "Jackfruit",
+    "Kiwi",
+  ];
 
-const List: FunctionComponent<ListProps> = (props) => {
-  return <div>#List goes here#</div>;
+  const filteredItems = items.filter((item) =>
+    item.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <ul>
+      {filteredItems.map((item, index) => (
+        <Item key={index} item={item} />
+      ))}
+    </ul>
+  );
 };
 
 export default List;

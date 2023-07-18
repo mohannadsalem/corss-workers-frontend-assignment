@@ -1,15 +1,23 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
 // Components
 import Input from "./components/Input";
 import List from "./components/List";
 
-const Task4: FunctionComponent = () => {
+interface Task4Props {}
+
+const Task4: FunctionComponent<Task4Props> = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchTermChange = (term: string) => {
+    setSearchTerm(term);
+  };
+
   return (
     <div>
-      <Input />
+      <Input onSearchTermChange={handleSearchTermChange} />
       <br />
-      <List />
+      <List searchTerm={searchTerm} />
     </div>
   );
 };
